@@ -1,7 +1,6 @@
 bcps - ByteCode Performance Statistics
 ====
 
-This AOP-like library plugs-in to your app as a Java Agent, allowing you to instrument methods that you find interesting in your code, for collecting and storing performance statistics easily, for later analysis.
+This AOP-style agent library plugs-in to your app as a Java Agent, allowing you to instrument methods that you find interesting. The injected bytecode collects and stores performance statistics without you having to necessarily adapt or change your code, for easy offline inspection.
 
-You don't have to make any changes to your code, or you can annotate which methods you want to instrument.
 The library uses low-latency and GC-free (no heap-allocating) techniques, to avoid being detrimental to your application's performance.
