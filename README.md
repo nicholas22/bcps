@@ -1,4 +1,4 @@
-bcps
+bcps - ByteCode Performance Statistics
 ====
 
 This AOP-like library plugs-in to your app as a Java Agent, allowing you to instrument methods that you find interesting in your code, for collecting and storing performance statistics easily, for later analysis.
