@@ -34,6 +34,9 @@ public class InMemoryAppender
 
   };
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void process(final Event event)
   {
@@ -51,6 +54,9 @@ public class InMemoryAppender
       }
   }
 
+  /**
+   * Retrieves events tied to an ID, or returns null if no such ID exists
+   */
   public static List<Event> removeAndGet(final String id)
   {
     synchronized(map)
