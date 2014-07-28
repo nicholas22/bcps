@@ -17,6 +17,7 @@ public class EventQueueDisruptor
     implements EventQueue
 {
   private static final String RING_SIZE_PROP = "bcps.ring.size";
+  private static final int RING_SIZE_DEFAULT = 32;
   private final RingBuffer<Event> ringBuffer;
 
   @SuppressWarnings("unchecked")
@@ -24,7 +25,7 @@ public class EventQueueDisruptor
   {
     final AtomicInteger threadCounter = new AtomicInteger();
     // create disruptor queue
-    Disruptor<Event> disruptor = new Disruptor<Event>(new EventFactory(), JavaPropsHelper.getInt(RING_SIZE_PROP, 32),
+    Disruptor<Event> disruptor = new Disruptor<Event>(new EventFactory(), JavaPropsHelper.getBufferSize(RING_SIZE_PROP, RING_SIZE_DEFAULT),
         Executors.newCachedThreadPool(new ThreadFactory() {
           @Override
           public Thread newThread(final Runnable runnable)

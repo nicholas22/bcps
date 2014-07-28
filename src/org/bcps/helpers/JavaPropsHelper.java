@@ -31,7 +31,22 @@ public class JavaPropsHelper
    * 
    * @throws NullPointerException NullPointerException
    */
-  public static int getInt(final String name, final int defaultValue)
+  public static int getBufferSize(final String name, final int defaultValue)
+  {
+    int result = getInt(name, defaultValue);
+    while (result % 2 != 0)
+      result++;
+    if (result < 64)
+      throw new IllegalArgumentException("Buffer " + name + " is too small: " + result);
+    return result;
+  }
+
+  /**
+   * Returns the value of a system property as an int. Uses the default value upon missing property or parsing errors.
+   * 
+   * @throws NullPointerException NullPointerException
+   */
+  private static int getInt(final String name, final int defaultValue)
   {
     if (name == null)
       throw new NullPointerException("name");
@@ -47,18 +62,4 @@ public class JavaPropsHelper
     }
   }
 
-  /**
-   * Returns the value of a system property as an int. Uses the default value upon missing property or parsing errors.
-   * 
-   * @throws NullPointerException NullPointerException
-   */
-  public static int getBufferSize(final String name, final int defaultValue)
-  {
-    int result = getInt(name, defaultValue);
-    while (result % 2 != 0)
-      result++;
-    if (result < 64)
-      throw new IllegalArgumentException("Buffer " + name + " is too small: " + result);
-    return result;
-  }
 }
