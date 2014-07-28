@@ -23,9 +23,9 @@ public class LowLatencyFileAppender
   private static final String MAX_TEXT_BUFFER_PROP = "bips.max.text.buffer.bytes";
   private static final int MAX_TEXT_BUFFER_DEFAULT = 256;
 
-  private static final String FIELD_SEP = "\t";
+  private static final String FIELD_SEP = ",";
   private static final String LINE_SEPARATOR = System.getProperty("line.separator");
-  private static final byte[] IS_START = (FIELD_SEP + "START" + FIELD_SEP + FIELD_SEP).getBytes();
+  private static final byte[] IS_START = (FIELD_SEP + "START" + FIELD_SEP).getBytes();
   private static final byte[] IS_COMPLETE = (FIELD_SEP + "COMPLETE" + FIELD_SEP).getBytes();
 
   private final OutputStream output;

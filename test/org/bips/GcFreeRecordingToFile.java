@@ -32,10 +32,12 @@ public class GcFreeRecordingToFile
 
   @Test
   public void givenEvents_whenRecordedUsingDisruptorThroughQueue_thenPrinted()
+      throws Exception
   {
     recorder.start("REQUEST_ID_343", "onReceive");
     recorder.start("REQUEST_ID_343", "calculate");
     recorder.complete("REQUEST_ID_343", "calculate");
     recorder.complete("REQUEST_ID_343", "onReceive");
+    Thread.sleep(1000);
   }
 }

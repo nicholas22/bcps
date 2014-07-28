@@ -3,8 +3,8 @@ package org.bips.queueing;
 import org.bips.appender.EventAppender;
 
 /**
- * An implementation of {@link EventQueue} that uses the calling thread to call into the analyzer. As opposed to most other queues, this one
- * heap-allocates objects. It is meant to be used for debugging only. This class's thread-safety depends on the given {@link EventAppender}.
+ * An implementation of {@link EventQueue} that uses the calling thread to call into the analyzer. This queue heap-allocates objects. It is
+ * meant to be used for debugging only. This class's thread-safety depends on the given {@link EventAppender}.
  */
 public class EventQueuePassThrough
     implements EventQueue

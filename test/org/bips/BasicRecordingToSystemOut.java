@@ -26,11 +26,13 @@ public class BasicRecordingToSystemOut
 
   @Test
   public void givenEvents_whenRecordedUsingDisruptorThroughQueue_thenPrinted()
+      throws Exception
   {
     recorder = new EventRecorderImpl(new EventQueueDisruptor(new ConsolePrintingAppender()));
     recorder.start("REQUEST_ID_342", "onReceive");
     recorder.start("REQUEST_ID_342", "calculate");
     recorder.complete("REQUEST_ID_342", "calculate");
     recorder.complete("REQUEST_ID_342", "onReceive");
+    Thread.sleep(1000);
   }
 }
