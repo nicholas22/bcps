@@ -1,4 +1,4 @@
-package org.bips.helpers;
+package org.bcps.helpers;
 
 /**
  * Helper for parsing Java properties

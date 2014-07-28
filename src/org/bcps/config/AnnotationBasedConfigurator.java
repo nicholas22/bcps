@@ -1,4 +1,4 @@
-package org.bips.config;
+package org.bcps.config;
 
 public class AnnotationBasedConfigurator
 {

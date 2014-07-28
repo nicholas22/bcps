@@ -1,11 +1,11 @@
-package org.bips.appender;
+package org.bcps.appender;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import org.bips.helpers.JavaPropsHelper;
-import org.bips.queueing.Event;
+import org.bcps.helpers.JavaPropsHelper;
+import org.bcps.queueing.Event;
 
 /**
  * A text file appender for events. You can override the destination file via system properties. Note that this class does no heap
@@ -16,11 +16,11 @@ import org.bips.queueing.Event;
 public class LowLatencyFileAppender
     implements EventAppender
 {
-  public static final String OUTPUT_FILE_DEFAULT = "bips.tsv";
-  private static final String OUTPUT_FILE_PROP = "bips.output.file";
+  public static final String OUTPUT_FILE_DEFAULT = "bcps.tsv";
+  private static final String OUTPUT_FILE_PROP = "bcps.output.file";
   private static final int OUTPUT_BUFFER_BYTES_DEFAULT = 64 * 1024;
-  private static final String OUTPUT_STREAM_BUFFER_PROP = "bips.stream.buffer.bytes";
-  private static final String MAX_TEXT_BUFFER_PROP = "bips.max.text.buffer.bytes";
+  private static final String OUTPUT_STREAM_BUFFER_PROP = "bcps.stream.buffer.bytes";
+  private static final String MAX_TEXT_BUFFER_PROP = "bcps.max.text.buffer.bytes";
   private static final int MAX_TEXT_BUFFER_DEFAULT = 256;
 
   private static final String FIELD_SEP = ",";

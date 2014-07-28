@@ -1,4 +1,4 @@
-package org.bips.queueing;
+package org.bcps.queueing;
 
 /**
  * POJO storing event data

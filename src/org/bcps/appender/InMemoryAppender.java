@@ -1,11 +1,11 @@
-package org.bips.appender;
+package org.bcps.appender;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map.Entry;
-import org.bips.helpers.JavaPropsHelper;
-import org.bips.queueing.Event;
+import org.bcps.helpers.JavaPropsHelper;
+import org.bcps.queueing.Event;
 
 /**
  * Simple in-memory appender, stores events in a map. Events can be fetched by interested parties via static methods. Retrieving events
@@ -15,10 +15,10 @@ import org.bips.queueing.Event;
 public class InMemoryAppender
     implements EventAppender
 {
-  private static final String INITIAL_SIZE_PROP = "bips.inmem.initial.size";
+  private static final String INITIAL_SIZE_PROP = "bcps.inmem.initial.size";
   private static final int INITIAL_SIZE_DEFAULT = 128;
   private static final int INITIAL_SIZE = JavaPropsHelper.getBufferSize(INITIAL_SIZE_PROP, INITIAL_SIZE_DEFAULT);
-  private static final String MAX_SIZE_PROP = "bips.inmem.max.size";
+  private static final String MAX_SIZE_PROP = "bcps.inmem.max.size";
   private static final int MAX_SIZE_DEFAULT = 1024;
   private static final int MAX_SIZE = JavaPropsHelper.getBufferSize(MAX_SIZE_PROP, MAX_SIZE_DEFAULT);
 

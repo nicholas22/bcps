@@ -1,10 +1,10 @@
-package org.bips;
+package org.bcps;
 
-import org.bips.appender.ConsolePrintingAppender;
-import org.bips.queueing.EventQueueDisruptor;
-import org.bips.queueing.EventQueuePassThrough;
-import org.bips.recording.EventRecorder;
-import org.bips.recording.EventRecorderImpl;
+import org.bcps.appender.ConsolePrintingAppender;
+import org.bcps.queueing.EventQueueDisruptor;
+import org.bcps.queueing.EventQueuePassThrough;
+import org.bcps.recording.EventRecorder;
+import org.bcps.recording.EventRecorderImpl;
 import org.junit.Test;
 
 /**

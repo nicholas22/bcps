@@ -1,4 +1,4 @@
-package org.bips.queueing;
+package org.bcps.queueing;
 
 /**
  * Queueing interface used for transporting events from recording to analysis

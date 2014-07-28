@@ -1,6 +1,6 @@
-package org.bips.queueing;
+package org.bcps.queueing;
 
-import org.bips.appender.EventAppender;
+import org.bcps.appender.EventAppender;
 
 /**
  * An implementation of {@link EventQueue} that uses the calling thread to call into the analyzer. This queue heap-allocates objects. It is

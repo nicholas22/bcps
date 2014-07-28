@@ -1,6 +1,6 @@
-package org.bips.appender;
+package org.bcps.appender;
 
-import org.bips.queueing.Event;
+import org.bcps.queueing.Event;
 
 /**
  * Interface of an event appender, accepts events and processes them using some strategy.

@@ -1,4 +1,4 @@
-package org.bips.recording;
+package org.bcps.recording;
 
 /**
  * Decorator for an {@link EventRecorder}, using the current thread name as ID

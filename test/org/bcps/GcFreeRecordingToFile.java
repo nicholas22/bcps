@@ -1,10 +1,10 @@
-package org.bips;
+package org.bcps;
 
 import java.io.File;
-import org.bips.appender.LowLatencyFileAppender;
-import org.bips.queueing.EventQueueDisruptor;
-import org.bips.recording.EventRecorder;
-import org.bips.recording.EventRecorderImpl;
+import org.bcps.appender.LowLatencyFileAppender;
+import org.bcps.queueing.EventQueueDisruptor;
+import org.bcps.recording.EventRecorder;
+import org.bcps.recording.EventRecorderImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

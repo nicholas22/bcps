@@ -1,4 +1,4 @@
-package org.bips.helpers;
+package org.bcps.helpers;
 
 /**
  * Timing helper class, for computing nanosecond timestamps

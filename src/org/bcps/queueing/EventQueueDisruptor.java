@@ -1,22 +1,22 @@
-package org.bips.queueing;
+package org.bcps.queueing;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.bips.appender.EventAppender;
-import org.bips.helpers.JavaPropsHelper;
+import org.bcps.appender.EventAppender;
+import org.bcps.helpers.JavaPropsHelper;
 import com.lmax.disruptor.RingBuffer;
 import com.lmax.disruptor.SleepingWaitStrategy;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.ProducerType;
 
 /**
- * Event queue implementation using a fast & bounded ring buffer
+ * Event queue implementation using a fast & bounded ring buffer, using no heap allocations on the hot path.
  */
 public class EventQueueDisruptor
     implements EventQueue
 {
-  private static final String RING_SIZE_PROP = "bips.ring.size";
+  private static final String RING_SIZE_PROP = "bcps.ring.size";
   private final RingBuffer<Event> ringBuffer;
 
   @SuppressWarnings("unchecked")

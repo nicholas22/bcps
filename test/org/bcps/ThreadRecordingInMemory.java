@@ -1,9 +1,9 @@
-package org.bips;
+package org.bcps;
 
-import org.bips.appender.InMemoryAppender;
-import org.bips.queueing.EventQueueDisruptor;
-import org.bips.recording.EventRecorderImpl;
-import org.bips.recording.ThreadEventDecorator;
+import org.bcps.appender.InMemoryAppender;
+import org.bcps.queueing.EventQueueDisruptor;
+import org.bcps.recording.EventRecorderImpl;
+import org.bcps.recording.ThreadEventDecorator;
 import org.junit.Before;
 import org.junit.Test;
 

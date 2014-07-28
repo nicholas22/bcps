@@ -1,7 +1,7 @@
-package org.bips.recording;
+package org.bcps.recording;
 
-import org.bips.helpers.TimingHelper;
-import org.bips.queueing.EventQueue;
+import org.bcps.helpers.TimingHelper;
+import org.bcps.queueing.EventQueue;
 
 /**
  * Implementation of an {@link EventRecorder}

@@ -1,4 +1,4 @@
-package org.bips.recording;
+package org.bcps.recording;
 
 /**
  * Interface of an event recorder. This is capable of registering points where an operation has started and completed, tracking the time it

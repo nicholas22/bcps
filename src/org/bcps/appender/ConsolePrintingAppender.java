@@ -1,6 +1,6 @@
-package org.bips.appender;
+package org.bcps.appender;
 
-import org.bips.queueing.Event;
+import org.bcps.queueing.Event;
 
 /**
  * Basic console appender, prints events to the console. It is meant to be used for debugging only. This appender heap-allocates objects.
