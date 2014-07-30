@@ -15,7 +15,8 @@ public class InstrumentationClassConfigParser
 {
   private static final String COMMENT = "#";
   private static final String FIELD_SEPARATOR = "\t\\|\t";
-  private static final int PARTS_EXPECTED = 4;
+  private static final String HEADER_START = "- ";
+  private static final int HEADER_PARTS_EXPECTED = 2;
 
   private InstrumentationClassConfigParser()
   {
@@ -41,7 +42,7 @@ public class InstrumentationClassConfigParser
     {
       String line = null;
       while ((line = reader.readLine()) != null)
-        parseEntry(line, result);
+        parseEntry(line, reader, result);
     }
     finally
     {
@@ -51,20 +52,31 @@ public class InstrumentationClassConfigParser
     return result;
   }
 
-  private static void parseEntry(final String line, final List<InstrumentationClassConfig> result)
+  private static void parseEntry(final String line, final BufferedReader reader, final List<InstrumentationClassConfig> result)
+      throws IOException
   {
     if (!line.startsWith(COMMENT))
     {
-      // split config entry parts
-      String[] parts = line.split(FIELD_SEPARATOR);
-      if (parts.length < PARTS_EXPECTED)
-        throw new IllegalArgumentException("Invalid number of parts in config file entry (" + parts.length + ", expected " + PARTS_EXPECTED
-            + "); offending entry was: " + line);
+      if (!line.startsWith(HEADER_START))
+        throw new IllegalArgumentException("Expected config entry header to start with '" + HEADER_START + "'");
+      String[] parts = line.substring(HEADER_START.length()).split(" ");
+      if (parts.length < HEADER_PARTS_EXPECTED)
+        throw new IllegalArgumentException("Invalid number of parts in entry header (" + parts.length + ", expected "
+            + HEADER_PARTS_EXPECTED + "); offending entry was: " + line);
+      String classRegex = parts[0];
+      String methodRegex = parts[1];
+
+      String beforeMethod = reader.readLine();
+      if (beforeMethod == null)
+        throw new IllegalArgumentException("EOF while expecting before method code for entry: " + line);
+      String afterMethod = reader.readLine();
+      if (afterMethod == null)
+        throw new IllegalArgumentException("EOF while expecting after method code for entry: " + line);
 
       try
       {
         // parse
-        result.add(new InstrumentationClassConfig(Pattern.compile(parts[0]), Pattern.compile(parts[1]), parts[2], parts[3]));
+        result.add(new InstrumentationClassConfig(Pattern.compile(classRegex), Pattern.compile(methodRegex), beforeMethod, afterMethod));
       }
       catch(Exception e)
       {
