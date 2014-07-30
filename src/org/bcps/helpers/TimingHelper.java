@@ -15,7 +15,7 @@ public class TimingHelper
 
   /**
    * Get the current nanosecond timestamp, using a highly precise & highly accurate method. This timestamp only make sense is used within
-   * the context of the same JVM (its nanosecond part should not be used to compare values between processes ran under different JVMs).
+   * the context of the same JVM (its nanosecond part should not be used to compare values between processes of remote JVMs).
    */
   public static long getNanoTimestamp()
   {

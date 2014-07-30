@@ -1,9 +1,9 @@
-package org.bcps;
+package org.bcps.unit;
 
 import org.bcps.appender.InMemoryAppender;
+import org.bcps.dsl.instrumentation.ThreadedRecorder;
 import org.bcps.queueing.EventQueueDisruptor;
 import org.bcps.recording.EventRecorderImpl;
-import org.bcps.recording.ThreadEventDecorator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,24 +12,26 @@ import org.junit.Test;
  */
 public class ThreadRecordingInMemory
 {
-  private ThreadEventDecorator recorder;
-
   @Before
   public void setup()
   {
-    recorder = new ThreadEventDecorator(new EventRecorderImpl(new EventQueueDisruptor(new InMemoryAppender())));
+    ThreadedRecorder.setEventRecorder(new EventRecorderImpl(new EventQueueDisruptor(new InMemoryAppender())));
+  }
+
+  public void teardown()
+  {
+    ThreadedRecorder.setEventRecorder(null);
   }
 
   @Test
   public void givenEvents_whenRecordedUsingDisruptorThroughQueue_thenPrinted()
       throws Exception
   {
-    recorder.start("onReceive");
-    recorder.start("calculate");
-    recorder.complete("calculate");
-    recorder.complete("onReceive");
+    ThreadedRecorder.start("onReceive");
+    ThreadedRecorder.start("calculate");
+    ThreadedRecorder.complete("calculate");
+    ThreadedRecorder.complete("onReceive");
     Thread.sleep(1000);
     System.out.println(InMemoryAppender.removeAndGet(Thread.currentThread().getName()));
-
   }
 }

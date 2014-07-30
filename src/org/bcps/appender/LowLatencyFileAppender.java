@@ -4,6 +4,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.bcps.helpers.JavaPropsHelper;
 import org.bcps.queueing.Event;
 
@@ -16,7 +18,7 @@ import org.bcps.queueing.Event;
 public class LowLatencyFileAppender
     implements EventAppender
 {
-  public static final String OUTPUT_FILE_DEFAULT = "bcps.tsv";
+  public static final String OUTPUT_FILE_DEFAULT = "bcps." + new SimpleDateFormat("yyyy-MM-ddTHH:mm:ss").format(new Date()) + "..tsv";
   private static final String OUTPUT_FILE_PROP = "bcps.output.file";
   private static final int OUTPUT_BUFFER_BYTES_DEFAULT = 64 * 1024;
   private static final String OUTPUT_STREAM_BUFFER_PROP = "bcps.stream.buffer.bytes";

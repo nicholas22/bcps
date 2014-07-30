@@ -1,0 +1,2 @@
+This is what the manifest in the exported JAR should look like.
+If you're creating a JAR with Eclipse, use this as the Manifest in the dialog.

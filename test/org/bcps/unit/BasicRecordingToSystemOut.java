@@ -1,4 +1,4 @@
-package org.bcps;
+package org.bcps.unit;
 
 import org.bcps.appender.ConsolePrintingAppender;
 import org.bcps.queueing.EventQueueDisruptor;

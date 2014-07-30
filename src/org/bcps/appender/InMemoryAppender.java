@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Set;
 import org.bcps.helpers.JavaPropsHelper;
 import org.bcps.queueing.Event;
 
 /**
- * Simple in-memory appender, stores events in a map. Events can be fetched by interested parties via static methods. Retrieving events
+ * Simple in-memory appender, stores events in a map. Events can be fetched by interested parties using static methods. Retrieving events
  * removes them from the cache. When the cache reaches a configurable size, it will evict eldest entries. This appender heap-allocates
  * objects. This class is thread-safe.
  */
@@ -62,6 +63,17 @@ public class InMemoryAppender
     synchronized(map)
     {
       return map.remove(id);
+    }
+  }
+
+  /**
+   * Retrieves current map entry keys
+   */
+  public static Set<String> keySet()
+  {
+    synchronized(map)
+    {
+      return map.keySet();
     }
   }
 

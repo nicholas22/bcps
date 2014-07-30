@@ -36,7 +36,7 @@ public class JavaPropsHelper
     int result = getInt(name, defaultValue);
     while (result % 2 != 0)
       result++;
-    if (result < 64)
+    if (result < 32)
       throw new IllegalArgumentException("Buffer " + name + " is too small: " + result);
     return result;
   }
