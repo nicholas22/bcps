@@ -91,6 +91,8 @@ public class LowLatencyFileAppender
     int textBufferSize = truncatingToBytes(event.id, textBuffer, 0);
     textBufferSize = truncatingToBytes(FIELD_SEP, textBuffer, textBufferSize);
     textBufferSize = truncatingToBytes(event.operation, textBuffer, textBufferSize);
+    textBufferSize = truncatingToBytes(FIELD_SEP, textBuffer, textBufferSize);
+    textBufferSize = truncatingToBytes(event.params, textBuffer, textBufferSize);
     textBufferSize = truncatingToBytes(LINE_SEPARATOR, textBuffer, textBufferSize);
 
     try

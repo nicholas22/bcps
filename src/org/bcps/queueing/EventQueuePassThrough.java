@@ -22,9 +22,9 @@ public class EventQueuePassThrough
    * {@inheritDoc}
    */
   @Override
-  public void enqueue(final boolean isStartEvent, final long timestamp, final String id, final String operation)
+  public void enqueue(final boolean isStartEvent, final long timestamp, final String id, final String operation, final String params)
   {
-    Event event = new Event(isStartEvent, timestamp, id, operation);
+    Event event = new Event(isStartEvent, timestamp, id, operation, params);
     if (event.isValid())
       eventAnalyzer.process(event);
   }

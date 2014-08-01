@@ -10,6 +10,7 @@ public final class Event
   public long timestamp;
   public String id;
   public String operation;
+  public String params;
 
   public Event()
   {
@@ -17,14 +18,16 @@ public final class Event
     timestamp = 0;
     id = "";
     operation = "";
+    params = "";
   }
 
-  public Event(final boolean isStartEvent, final long timestamp, final String id, final String operation)
+  public Event(final boolean isStartEvent, final long timestamp, final String id, final String operation, final String params)
   {
     this.isStartEvent = isStartEvent;
     this.timestamp = timestamp;
     this.id = id;
     this.operation = operation;
+    this.params = params;
   }
 
   public boolean isValid()
@@ -35,13 +38,14 @@ public final class Event
   @Override
   public Event clone()
   {
-    return new Event(isStartEvent, timestamp, id, operation);
+    return new Event(isStartEvent, timestamp, id, operation, params);
   }
 
   @Override
   public String toString()
   {
-    return "Event [isStartEvent=" + isStartEvent + ", timestamp=" + timestamp + ", id=" + id + ", operation=" + operation + "]";
+    return "Event [isStartEvent=" + isStartEvent + ", timestamp=" + timestamp + ", id=" + id + ", operation=" + operation + ", params="
+        + params + "]";
   }
 
 }

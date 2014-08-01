@@ -25,7 +25,17 @@ public final class EventRecorderImpl
   public void start(final String id, final String operation)
   {
     if (id != null && operation != null)
-      eventQueue.enqueue(true, TimingHelper.getNanoTimestamp(), id, operation);
+      eventQueue.enqueue(true, TimingHelper.getNanoTimestamp(), id, operation, "");
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void start(final String id, final String operation, final String params)
+  {
+    if (id != null && operation != null)
+      eventQueue.enqueue(true, TimingHelper.getNanoTimestamp(), id, operation, params != null ? params : "");
   }
 
   /**
@@ -35,7 +45,7 @@ public final class EventRecorderImpl
   public void complete(final String id, final String operation)
   {
     if (id != null && operation != null)
-      eventQueue.enqueue(false, TimingHelper.getNanoTimestamp(), id, operation);
+      eventQueue.enqueue(false, TimingHelper.getNanoTimestamp(), id, operation, "");
   }
 
 }

@@ -49,7 +49,7 @@ public class EventQueueDisruptor
   }
 
   @Override
-  public void enqueue(final boolean isStartEvent, final long timestamp, final String id, final String operation)
+  public void enqueue(final boolean isStartEvent, final long timestamp, final String id, final String operation, final String params)
   {
     // claim next slot in ring buffer
     long sequence = ringBuffer.next();
@@ -60,6 +60,7 @@ public class EventQueueDisruptor
     event.timestamp = timestamp;
     event.id = id;
     event.operation = operation;
+    event.params = params;
 
     ringBuffer.publish(sequence);
   }

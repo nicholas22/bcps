@@ -33,7 +33,7 @@ public class InstrumentationTest
   {
     ThreadedRecorder.setEventRecorder(new EventRecorderImpl(new EventQueueDisruptor(new ConsolePrintingAppender())));
     someMethodFoo();
-    someMethodBar();
+    someMethodBar(5, "test arg");
     Thread.sleep(1000);
   }
 
@@ -42,7 +42,7 @@ public class InstrumentationTest
     System.out.println("test");
   }
 
-  private static void someMethodBar()
+  private static void someMethodBar(final int a, final String b)
       throws InterruptedException
   {
     Thread.sleep(1000);

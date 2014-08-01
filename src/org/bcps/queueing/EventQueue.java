@@ -12,6 +12,7 @@ public interface EventQueue
    * @param timestamp The timestamp of the event.
    * @param id An identifier, that groups similar operations e.g. a request ID, or thread name.
    * @param operation The name of the operation being recorded.
+   * @param params Optional extra params
    */
-  void enqueue(boolean isStartEvent, long timestamp, String id, String operation);
+  void enqueue(boolean isStartEvent, long timestamp, String id, String operation, String params);
 }

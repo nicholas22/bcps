@@ -23,6 +23,8 @@ public class ConsolePrintingAppender
       sb.append(event.id);
       sb.append(",");
       sb.append(event.operation);
+      sb.append(",");
+      sb.append(event.params);
       System.out.println(sb.toString());
     }
   }

@@ -29,10 +29,18 @@ public class ThreadedRecorder
    */
   public static void start(final String operation)
   {
+    start(operation, "");
+  }
+
+  /**
+   * @see EventRecorder
+   */
+  public static void start(final String operation, final String params)
+  {
     EventRecorder rec = eventRecorder;
     if (rec != null)
       if (operation != null)
-        rec.start(Thread.currentThread().getName(), operation);
+        rec.start(Thread.currentThread().getName(), operation, params);
   }
 
   /**

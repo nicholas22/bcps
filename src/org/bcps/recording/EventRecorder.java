@@ -17,6 +17,17 @@ public interface EventRecorder
   void start(String id, String operation);
 
   /**
+   * Marks the start time of an operation. The operation is tied to an identifier, which groups similar operation types. Note that null
+   * arguments cause the event start recording to be skipped.
+   * 
+   * @param id An identifier, that groups similar operations e.g. a request ID, or thread name.
+   * @param operation The name of the operation being recorded.
+   * @param params Optional extra parameters to record
+   * 
+   */
+  void start(String id, String operation, String params);
+
+  /**
    * Records the end time of an operation. To match a start of an operation, the same identifier and operation name should be used. Not all
    * complete calls need to be matched with started ones, in which case their recordings are thrown away. Note that null arguments cause the
    * event completion recording to be skipped.
