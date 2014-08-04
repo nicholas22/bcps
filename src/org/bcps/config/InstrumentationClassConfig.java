@@ -47,4 +47,10 @@ public class InstrumentationClassConfig
     return afterMethod;
   }
 
+  @Override
+  public String toString()
+  {
+    return "InstrumentationClassConfig [classRegex=" + classRegex + ", methodRegex=" + methodRegex + ", beforeMethod=" + beforeMethod
+        + ", afterMethod=" + afterMethod + "]";
+  }
 }

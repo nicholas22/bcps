@@ -14,9 +14,9 @@ import java.util.regex.Pattern;
 public class InstrumentationClassConfigParser
 {
   private static final String COMMENT = "#";
-  private static final String FIELD_SEPARATOR = "\t\\|\t";
   private static final String HEADER_START = "- ";
   private static final int HEADER_PARTS_EXPECTED = 2;
+  private static final String[] WHITESPACE_CHARACTERS = {" ", "\n", "\r", "\t", "\r", "\n", " "};
 
   private InstrumentationClassConfigParser()
   {
@@ -42,7 +42,7 @@ public class InstrumentationClassConfigParser
     {
       String line = null;
       while ((line = reader.readLine()) != null)
-        parseEntry(line, reader, result);
+        parseEntry(trim(line), reader, result);
     }
     finally
     {
@@ -83,5 +83,17 @@ public class InstrumentationClassConfigParser
         throw new IllegalArgumentException("Error parsing entry: " + line, e);
       }
     }
+  }
+
+  private static String trim(String line)
+  {
+    for (String ch : WHITESPACE_CHARACTERS)
+    {
+      while (line.startsWith(ch))
+        line = line.substring(1);
+      while (line.endsWith(ch))
+        line = line.substring(0, line.length() - 1);
+    }
+    return line;
   }
 }
